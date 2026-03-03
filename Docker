@@ -1,0 +1,18 @@
+# Use official Python 3.12 image
+FROM python:3.12-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy all files
+COPY . .
+
+# Install dependencies
+RUN pip install --upgrade pip
+RUN pip install flask gdown scikit-learn
+
+# Expose the port that Spaces uses
+EXPOSE 7860
+
+# Command to run the app
+CMD ["python", "app.py"]
